@@ -1,18 +1,26 @@
-# Nome do projeto
+# Plataforma Educacional(*)
 
-Escreva um ou dois  parágrafo resumindo o objetivo do seu projeto.
+O projeto em questão tem como objetivo produzir uma plataforma educacional online de natureza abrangente (conteúdos de aprendizado variados) e sob medida para cada aluno e seus respectivos interesses. Além disso, a plataforma ainda há de apresentar um *modelo de negócio* amigável para a captação de professores interessados em ensinar na mesma.
+
+(\*)Nome provisório, o grupo ainda vai decidir um nome *catchy* e adequado para o projeto
 
 ## Alunos integrantes da equipe
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Felipe Costa Amaral
+* João Vitor Cunha
+* João Pedro Camargo dos Santos
+* Luiz Fernando
+* Marcus Vinícius
+* Rafael Russo
+* Thiago Xavier
 
 ## Professores responsáveis
 
-* Nome completo do professor 1
-* Nome completo do professor 2
+* Cristiane Neri Nobre
+* Fatima de Lima Procopio Duarte
+* Ilo Amy Saldanha Rivero
+* João Carlos Oliveira Caetano
+* Rommel Vieira Carneiro
 
 ## Instruções de utilização
 
