@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pesquisa de Popularidade</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">    
+</head>
+
+<body onload="Listapopularidade()">
+    <h1>Pesquisa de Popularidade</h1>
+
+    <div class="container">
+        <div class="row">
+            <div id="msg" class="col-sm-10 offset-sm-1 ">
+                <!--<div class="alert alert-warning">Professor/Curso não encontrado.</div>-->
+            </div>
+        </div>
+
+         
+        
+        <form id="form-popularidade">            
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <select name="filtro_professor" id="filtro_professor" onchange="Listapopularidade()" class="form-control">
+                        <option value="">Selecione o Professor</option>
+                        <option value="Felipe">Felipe</option>
+                        <option value="Carlos">Carlos</option>
+                        <option value="Jõao Bosco">Jõao Bosco</option>
+                        <option value="Rommel">Rommel</option>
+                        <option value="Fátima">Fátima</option>
+						<option value="Cláudio">Cláudio</option>
+						<option value="Roberto">Roberto</option>
+						<option value="Larissa">Larissa</option>
+						<option value="Luis">Luis</option>
+						<option value="Nicolas">Nicolas</option>
+                    </select>                    
+                </div>
+                <div class="col-sm-8">
+                    <select name="filtro_curso" id="filtro_curso" onchange="Listapopularidade()"  class="form-control">
+                        <option value="">Selecione o Curso</option>
+                        <option value="Aeds">Aeds</option>
+                        <option value="IC">IC</option>
+                        <option value="Tiaw">Tiaw</option>
+						<option value="Cálculo">Cálculo</option>
+						<option value="Banco de Dados">Banco de Dados</option>
+						<option value="Banco de Dados II">Banco de Dados II</option>
+						<option value="DevWeb">DevWeb</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+
+
+        <div class="row">
+            <div class="col-sm-12">
+                <table id="grid-popularidade" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Rank</th>
+                            <th scope="col">Professor</th>
+                            <th scope="col">Curso</th>
+                            <th scope="col">popularidade</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Horario de Aula</th>
+                            <th scope="col">Aulas Gravadas</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-popularidade">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+        // função para listar na tabela os popularidade que estão associados aos filtros 
+        function Listapopularidade() {
+            
+            // Obtem os dados informados pelo usuário nos filtros
+            let fp = document.getElementById('filtro_professor').value;
+            let fc = document.getElementById('filtro_curso').value;
+
+            // limpa a lista de popularidade apresentados
+            $("#table-popularidade").empty();
+
+            // Popula a tabela com os registros do banco de dados
+            for (let index = 0; index < db.data.length; index++) {
+                const popularidade = db.data[index];
+
+                // Verifica se os dados do popularidade batem com os filtros
+                if (((popularidade.Professor == fp) || (fp == '')) &&
+                    ((popularidade.Curso == fc) || (fc == ''))) {
+                    
+                    // Inclui o popularidade na tabela    
+                    $("#table-popularidade").append(`<tr><td scope="row">${popularidade.Rank}</td>
+                                                    <td>${popularidade.Professor}</td>
+                                                    <td>${popularidade.Curso}</td>
+                                                    <td>${popularidade.Porcentagem}</td>
+                                                    <td>${popularidade.Email}</td>
+                                                    <td>${popularidade.Horario_Aula}</td>
+                                                    <td>${popularidade.Aulas_Gravadas}</td>
+                                                </tr>`);
+                }
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
