@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Suporte</title>
+    <script>
+        window.onload = () => {
+            btn_submit.disabled = true;
+            let validaForm = () => {
+                if (nome.value.lenght == 0 || sobrenome.value.lenght == 0 || exampleFormControlTextarea1
+                    .value == 0 || exampleFormControlInput1.value == 0)
+                    btn_submit.disabled = true;
+                else
+                    btn_submit.disabled = false;
+            };
+            nome.oninput = validaForm;
+            sobrenome.oninput = validaForm;
+            exampleFormControlInput1.oninput = validaForm;
+            exampleFormControlTextarea1.oninput = validaForm;
+
+            duvida.onsubmit = (evento) => {
+                if (typeof (Storage) !== "undefined") {
+                    if (localStorage.cont) {
+                        localStorage.cont = Number(localStorage.cont) + 1;
+                    } else {
+                        localStorage.cont = 1;
+                    }
+
+                    let user = {
+                        nome: nome.value,
+                        sobrenome: sobrenome.value,
+                        duvida: exampleFormControlTextarea1.value,
+                        email: exampleFormControlInput1.value
+                    };
+                    localStorage.setItem('user' + localStorage.cont, JSON.stringify(user));
+                    nome.value = '';
+                    sobrenome.value = '';
+                    exampleFormControlTextarea1.value = '';
+                    exampleFormControlInput1.value = '';
+
+                    btn_submit.disabled = true;
+                    alert('Mensagem enviada com sucesso!');
+                    event.preventDefault();
+                };
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a href="home.html"><img style="height: 6vh; width: auto;" 
+                        
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="home.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Aulas_Gravadas.html">Aulas Gravadas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Horario_Aulas.html">Horario de Aulas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="suporte.html">Suporte</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Noticias_Importantes.html">Noticias Importantes</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row">
+                <h1 style="margin-top: 3vw;" align="center">Suporte</h1>
+            </div>
+        </div>
+        <form id="duvida" method="post" action="https://postman-echo.com/post">
+            <div class="container" style="max-width: 50vw; margin-top: 2vh;">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <input type="text" class="form-control" placeholder="Nome" id="nome" name="nnome"
+                            aria-label="Primeiro nome" autocomplete="off">
+                    </div>
+                    <div class="col-6">
+                        <input type="text" class="form-control" placeholder="Sobrenome" id="sobrenome" name="nsobrenome"
+                            aria-label="Last name" autocomplete="off">
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 2vh;">
+                    <div class="col-12">
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="exampleFormControlInput1" name="nemail"
+                                placeholder="email@email.com" autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">
+                                <h5>Sua dúvida</h5>
+                            </label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1"
+                                name="nexampleFormControlTextarea1"
+                                placeholder="Como assisto assisto aulas gravadas?" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-grid gap-2 col-2 mx-auto">
+                    <button type="submit" id="btn_submit" class="btn btn-secondary btn-lg"
+                        style="margin-top: 1rem;">Enviar</button>
+                </div>
+            </div>
+        </form>
+    </main>
+    <footer class="text-center text-white fixed-bottom">
+        <div class="text-center p-3" style="background-color: #000000;">
+            <p class="footertext" style="color: white;">© 2021 Copyright: Suporte - <b>PUC MINAS</b>
+            </p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+        integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
+        integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
