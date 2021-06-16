@@ -1,0 +1,55 @@
+.header{
+    padding: 15px;
+    background-color: #F1F1F1;
+}
+
+.logo{
+    width: 100px;
+}
+
+.nav a{
+    color: black;
+}
+
+.destaques{
+    text-align: center;
+}
+
+/* Breakpoint: 600 */
+@media screen and (max-width: 600px){
+
+    .header{
+        text-align: center;
+    }
+
+    .nav{
+        justify-content: center;
+    }
+}
+
+/* Breakpoint: 1024 */
+@media screen and (min-width: 601px) and (max-width: 1024px){
+
+    
+}
+
+@media screen and (min-width: 1025px){
+
+    .header_area{
+        padding-left: 20px;
+    }
+
+    .nav{
+        float: right;
+    }
+
+    .main_area{
+        padding-left: 300px;
+    }
+
+    .main2_area{
+        padding-left: 300px;
+    }
+
+    
+}
