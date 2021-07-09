@@ -22,6 +22,6 @@ O projeto em questão tem como objetivo produzir uma plataforma educacional onli
 * João Carlos Oliveira Caetano
 * Rommel Vieira Carneiro
 
-## Instruções de utilização
+## Instruções Gerais
 
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
+A aplicação web em questão está hosteada aqui: https://tiaw.rafaelrussosoar.repl.co/
